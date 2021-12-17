@@ -52,9 +52,9 @@ int main() {
         }
     }
 
-    cout << "Following is the SAFE Sequence" << endl;
-    for (i = 0; i < n - 1; i++){
-        cout << " p" << ans[i] << " ->";
+    cout << "The Safe Sequence will be printed: " << endl;
+    for (j = 0; j < n - 1; j++){
+        cout << " p" << ans[j] << " ->";
     }
     cout << " p" << ans[n - 1] << endl;
 
