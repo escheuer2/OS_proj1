@@ -1,4 +1,4 @@
-# OS-proj1
+# OS Project 1
 
 The purpose of this program is to solve the Producer Consumer problem using sychronization. 
 
