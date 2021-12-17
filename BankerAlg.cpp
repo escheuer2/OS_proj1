@@ -1,24 +1,52 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
-int main() {
-
+int main(int argc, char* argv[]) {
     int n, m, i, j, k;
     n = 5;
     m = 3;
-    int alloc[5][3] = { { 0, 1, 0 },
-                        { 2, 0, 0 },
-                        { 3, 0, 2 },
-                        { 2, 1, 1 },
-                        { 0, 0, 2 } };
 
-    int max[5][3] = {   { 7, 5, 3 },
-                        { 3, 2, 2 },
-                        { 9, 0, 2 },
-                        { 2, 2, 2 },
-                        { 4, 3, 3 } };
+    char hold;
+    int alloc[n][m];
+    int max[n][m];
+    int avail[3];
+
+    ifstream theFile (argv[1]);
+
+    for (int i = 0; i < n; i++) {
+        int j = 0;
+
+        while (true) {
+            theFile >> hold;
+            if (hold == '/')
+                break;
+            alloc[i][j] = (int)hold - 48;
+            j++;
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        int j = 0;
+
+        while (true) {
+            theFile >> hold;
+            if (hold == '/')
+                break;
+            max[i][j] = (int)hold - 48;
+            j++;
+        }
+    }
+
+    int v = 0;
+    while (true) {
+        theFile >> hold;
+        if (hold == '/')
+            break;
+        avail[v] = (int)hold - 48;
+        v++;
+    }
     
-    int avail[3] = { 3, 3, 2 };
 
     int f[n], ans[n], ind = 0;
     for (k = 0; k < n; k++) {
